@@ -13,6 +13,7 @@ new Vue({
       this.monsterHealth = 100
       this.turns = []
     },
+    
     attack: function() {
       var damage = this.calculateDamage(3, 10)
       this.monsterHealth -= damage
@@ -26,6 +27,7 @@ new Vue({
       
       this.monsterAttacks()
     },
+    
     specialAttack: function () {
       var damage = this.calculateDamage(10, 10)
       this.monsterHealth -= damage
@@ -39,6 +41,7 @@ new Vue({
       
       this.monsterAttacks()
     },
+    
     heal: function() {
       if (this.playerHealth <= 90) {
         this.playerHealth += 10
@@ -51,9 +54,11 @@ new Vue({
       })
       this.monsterAttacks()
     },
+    
     giveUp: function() {
       this.gameIsRunning = false
     },
+    
     monsterAttacks: function() {
       var damage = this.calculateDamage(5, 12)
       this.playerHealth -= damage
@@ -63,9 +68,11 @@ new Vue({
       })
       this.checkWin()
     },
+    
     calculateDamage: function(min, max) {
       return Math.max(Math.floor(Math.random() * max) + 1, min)
     },
+    
     checkWin: function() {
       if (this.monsterHealth <= 0) {
         if (confirm('You Won! New Game?')) {
